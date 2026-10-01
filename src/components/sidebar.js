@@ -6,74 +6,10 @@ class Sidebar extends HTMLElement {
     this.title = this.getAttribute('title')
     this.color = this.getAttribute('color')
     this.message = this.getAttribute('message')
-    this.data = []
   }
 
   connectedCallback() {
-    this.loadData()
     this.render()
-  }
-
-  loadData() {
-    this.data = [
-      {
-        name: 'Lorem',
-        url: '#',
-      },
-      {
-        name: 'Lorem',
-        url: '#',
-      },
-      {
-        name: 'Lorem',
-        url: '#',
-      },
-      {
-        name: 'Lorem',
-        url: '#',
-      },
-      {
-        name: 'Lorem',
-        url: '#',
-      },
-      {
-        name: 'Lorem',
-        url: '#',
-      },
-      {
-        name: 'Lorem',
-        url: '#',
-      },
-      {
-        name: 'Lorem',
-        url: '#',
-      },
-      {
-        name: 'Lorem',
-        url: '#',
-      },
-      {
-        name: 'Lorem',
-        url: '#',
-      },
-      {
-        name: 'Lorem',
-        url: '#',
-      },
-      {
-        name: 'Lorem',
-        url: '#',
-      },
-      {
-        name: 'Lorem',
-        url: '#',
-      },
-      {
-        name: 'Lorem',
-        url: '#',
-      },
-
-    ]
   }
 
   render() {
@@ -175,36 +111,14 @@ class Sidebar extends HTMLElement {
             left: -100%;
           }
 
-          .sidebar-active::-webkit-scrollbar-thumb,
-          .sidebar-active::-webkit-scrollbar-thumb {
-            background-color: #181818;
-          }
-
-          .sidebar-active::-webkit-scrollbar,
-          .sidebar-active::-webkit-scrollbar {
-            width: 5px;
-            height: 8px;
-            background-color: white;
-          }
-
-          .sidebar-active::-webkit-scrollbar:horizontal,
-          .sidebar-active::-webkit-scrollbar:horizontal {
-            display: none;
-          }
-
-          .sidebar-active::-webkit-scrollbar-thumb:active,
-          .sidebar-active::-webkit-scrollbar-thumb:active {
-            background-color: #313131;
-          }
-
-          .sidebar-active::-webkit-scrollbar-thumb:hover,
-          .sidebar-active::-webkit-scrollbar-thumb:hover {
-            background-color: #313131;
-          }
-
 
           .sidebar-left {
             cursor: pointer;
+          }
+
+          chatarea-component {
+            flex: 1;
+            min-height: 0;
           }
 
           .sidebar-active {
@@ -213,8 +127,6 @@ class Sidebar extends HTMLElement {
             gap: 2rem;
             padding-left: 1rem;
             padding-right: 1rem;
-            height:100vh;
-            overflow:scroll;
           }
 
           .sidebar-top {
@@ -272,11 +184,11 @@ class Sidebar extends HTMLElement {
             justify-content: flex-start;
             align-items: center;
             gap: 1rem;
-
+            padding:0.2rem;
           }
 
           .sidebar-inactive svg {
-            width: 100%;
+            width: 90%;
           }
 
     </style>
@@ -330,13 +242,13 @@ class Sidebar extends HTMLElement {
     this.shadow.querySelector('.sidebar').addEventListener("click", () => {
       this.shadow.querySelector('.aside-right').classList.toggle('inactive');
       this.shadow.querySelector('.aside-left').classList.toggle('active');
-      this.shadow.querySelector('main').classList.toggle('active');
+      document.querySelector('main').classList.toggle('active');
     })
 
     this.shadow.querySelector('.sidebar-left').addEventListener("click", () => {
       this.shadow.querySelector('.aside-right').classList.toggle('inactive');
       this.shadow.querySelector('.aside-left').classList.toggle('active');
-      this.shadow.querySelector('main').classList.toggle('active');
+      document.querySelector('main').classList.toggle('active');
     })
   }
 }

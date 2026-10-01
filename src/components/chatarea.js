@@ -88,6 +88,41 @@ class Chatarea extends HTMLElement {
         url: '#',
       },
 
+      {
+        name: 'Lorem',
+        url: '#',
+      },
+
+      {
+        name: 'Lorem',
+        url: '#',
+      },
+
+      {
+        name: 'Lorem',
+        url: '#',
+      },
+
+      {
+        name: 'Lorem',
+        url: '#',
+      },
+
+      {
+        name: 'Lorem',
+        url: '#',
+      },
+
+      {
+        name: 'Lorem',
+        url: '#',
+      },
+
+      {
+        name: 'Lorem',
+        url: '#',
+      },
+
     ]
   }
 
@@ -97,6 +132,19 @@ class Chatarea extends HTMLElement {
     <style>
            * {
             box-sizing: border-box;
+          }
+
+          :host {
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+          }
+
+          .chatarea {
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
           }
 
            span {
@@ -162,7 +210,7 @@ class Chatarea extends HTMLElement {
             background-color: rgba(255, 255, 255, 0.1);
           }
 
-          .side-main-menu:active {
+          .sidebar-main-menu:active {
             background-color: rgba(255, 255, 255, 0.2);
           }
 
@@ -187,6 +235,8 @@ class Chatarea extends HTMLElement {
             display: flex;
             flex-direction: column;
             gap: 2rem;
+            flex: 1;
+            min-height: 0;
             overflow:hidden;
             padding-left: 1rem;
             padding-right: 1rem;
@@ -203,22 +253,25 @@ class Chatarea extends HTMLElement {
           }
 
           .sidebar-chat {
-  max-height: 50vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  cursor: pointer;
-}
+            flex: 1;
+            min-height: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+            cursor: pointer;
+          }
 
-          .sidebar-chat::after {
-            content: "";
-            height: 100%;
-            width: 3vh;
-            background: linear-gradient(90deg, rgba(15, 15, 15, 0.51) 0%, rgba(15, 15, 15, 1) 100%);
-            position: absolute;
-            margin: 10rem 0 0 0;
-            right: 0;
-            top: 0%;
-            z-index: 1001;
+          .sidebar-chat::-webkit-scrollbar {
+            width: 5px;
+            background-color: white;
+          }
+
+          .sidebar-chat::-webkit-scrollbar-thumb {
+            background-color: #181818;
+          }
+
+          .sidebar-chat::-webkit-scrollbar-thumb:hover,
+          .sidebar-chat::-webkit-scrollbar-thumb:active {
+            background-color: #313131;
           }
 
           .sidebar-chat li {
@@ -229,14 +282,13 @@ class Chatarea extends HTMLElement {
           .sidebar-chat ul {
             display: flex;
             flex-direction: column;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-
           }
 
           .sidebar-chat li {
             padding: 0.5rem 0.5rem 0.5rem 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
 
           .sidebar-chat li:hover {
@@ -268,7 +320,6 @@ class Chatarea extends HTMLElement {
           </div>
         </div>
       </div>
-    </div>
     `
 
     const ul = this.shadow.querySelector('ul')
