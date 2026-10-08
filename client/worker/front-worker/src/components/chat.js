@@ -90,7 +90,7 @@ class Chat extends HTMLElement {
         width: 70%;
       }
 
-      .main-chat-form input {
+      .main-chat-form textarea {
         width: 100%;
         height: 10vh;
         background-color: #181818;
@@ -98,9 +98,11 @@ class Chat extends HTMLElement {
         border-radius: 10px;
         position: relative;
         border: 1px solid white;
+        align-content: center;
+        justify-content: center;
       }
 
-      .main-chat-form input::placeholder {
+      .main-chat-form textarea::placeholder {
         color: white;
         font-family: "Valley Sans", sans-serif;
       }
@@ -143,7 +145,7 @@ class Chat extends HTMLElement {
 
       <div class="main-chat-form">
         <form action="">
-          <input type="text" class="text" placeholder="Escribe un mensaje...">
+          <textarea type="text" class="text" placeholder="Escribe un mensaje..."></textarea>
           <div class="main-chat-form-icons">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <title>file-upload-outline</title>
@@ -159,6 +161,36 @@ class Chat extends HTMLElement {
       </div>
     </div>
     `
+
+    const form = this.shadow.querySelector('form');
+    const sendFormButton = this.shadow.querySelector('.main-chat-form-icons :last-child');
+
+    sendFormButton.addEventListener('click', async event => {
+      event.preventDefault();
+
+      let formData = new FormData(form);
+      let formDataJson = Object.fromEntries(formData.entries());
+
+      try {
+
+        const response = await fetch('http://127.0.0.1:8080/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formDataJson)
+        })
+
+        const data = await response.json()
+
+
+      } catch (error) {
+      }
+
+
+    });
+
+
   }
 }
 
