@@ -1,0 +1,34 @@
+{
+  "name": "prueba",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dividir": "node src/dividir.mjs",
+    "dividir:listar": "node src/dividir.mjs --listar",
+    "ocr": "node --env-file=.env src/vastai-ocr-folder.mjs",
+    "ocr:listar": "node src/vastai-ocr-folder.mjs --listar",
+    "ocr:prueba": "node --env-file=.env src/vastai-ocr-test.mjs",
+    "ocr:prueba:listar": "node src/vastai-ocr-test.mjs --listar",
+    "preparar": "tsx src/indexar.ts --preparar",
+    "indexar": "tsx src/indexar.ts",
+    "buscar": "tsx src/buscar.ts",
+    "typecheck": "tsc -p tsconfig.buscador.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@huggingface/transformers": "^3.8.1",
+    "chromadb": "^3.5.0",
+    "dotenv": "^18.0.10",
+    "openai": "^7.55.0",
+    "pdf-lib": "^1.17.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  }
+}

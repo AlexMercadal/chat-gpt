@@ -1,0 +1,21 @@
+# Dependencias, modelos y base de datos
+node_modules/
+.cache/
+chroma_db/
+
+# Datos de las empresas
+/datos/
+
+# Variables de entorno y credenciales
+.env
+.env.*
+!.env.example
+
+# Carpetas y resultados de la estructura anterior
+entrada/
+resultado/
+salida/
+
+indice-plugcore.json
+resultado-ocr.json
+resultado-ocr.txt

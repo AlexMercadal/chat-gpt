@@ -1,0 +1,11 @@
+Comando	Para qué sirve
+npm run dividir: listar	Busca los PDF originales y muestra dónde guardaría sus partes. No genera archivos.
+npm run dividir	 Divide los PDF de entrada y sus subcarpetas en partes de 12 páginas. Respeta la blacklist.
+npm run ocr:listar	Muestra los archivos encontrados en salida, sus destinos y cuáles ya están procesados. No ejecuta OCR.
+npm run ocr	Ejecuta VastAI OCR sobre los archivos pendientes y guarda TXT/JSON en resultado. Omite los que ya tienen ambos resultados.
+npm run ocr:prueba:listar -- "plugcore-docs.pdf"	Comprueba las rutas de una prueba individual. No ejecuta OCR.
+npm run ocr:prueba -- "plugcore-docs.pdf"	Ejecuta OCR sobre ese archivo de entrada. Guarda o reemplaza resultado-ocr.txt y .json en pruebas.
+npm run preparar	Lee los TXT y genera indices/indice-plugcore.json. No llama a OpenAI ni modifica ChromaDB.
+npm run indexar	Guarda los párrafos, palabras clave y vectores en ChromaDB. Usa OpenAI para los párrafos nuevos o modificados; reutiliza los que no han cambiado.
+npm run buscar	Abre el buscador. Cada consulta obtiene palabras clave y un embedding mediante OpenAI y recupera los párrafos desde ChromaDB.
+npm run typecheck	Comprueba errores de TypeScript, sin ejecutar el OCR ni llamar a OpenAI.

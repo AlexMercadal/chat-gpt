@@ -15,19 +15,24 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "dev": "npm-run-all --parallel dev:front-admin dev:front-worker dev:auth-admin dev:auth-worker dev:auth proxy",
+    "dev": "npm-run-all --parallel dev:api dev:front-admin dev:front-worker dev:auth-admin dev:auth-worker dev:auth proxy",
+    "dev:api": "cd api && npm run dev",
     "dev:front-admin": "cd client/admin/front-admin && npm run dev",
     "dev:front-worker": "cd client/worker/front-worker && npm run dev",
     "dev:auth-admin": "cd client/admin/auth-admin && npm run dev",
     "dev:auth-worker": "cd client/worker/auth-worker && npm run dev",
     "dev:auth": "cd client/auth && npm run dev",
-    "install": "npm-run-all --parallel install:front-admin install:front-worker install:auth-admin install:auth-worker install:auth",
+    "install": "npm-run-all --parallel install:api install:indexer install:front-admin install:front-worker install:auth-admin install:auth-worker install:auth",
+    "install:api": "cd api && npm install",
+    "install:indexer": "cd indexer && npm install",
     "install:front-admin": "cd client/admin/front-admin && npm install",
     "install:front-worker": "cd client/worker/front-worker && npm install",
     "install:auth-admin": "cd client/admin/auth-admin && npm install",
     "install:auth-worker": "cd client/worker/auth-worker && npm install",
     "install:auth": "cd client/auth && npm install",
-    "proxy": "node ./proxy.js"
+    "proxy": "node ./proxy.js",
+    "indexar": "cd indexer && npm run indexar",
+    "buscar": "cd indexer && npm run buscar"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5"

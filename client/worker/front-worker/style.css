@@ -69,6 +69,10 @@ main.active {
   padding-left: 5%;
 }
 
+main.pdf-open {
+  padding-right: 40%;
+}
+
 main {
   background-color: hsl(0, 0%, 6%);
 }
